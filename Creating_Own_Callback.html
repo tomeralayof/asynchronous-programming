@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let student = [{ name: "tomer", age: "25" }, { name: "david", age: "50" }, { name: "david", age: 30 }];
+    let processStudent = (data, callback) => {
+      for (let i = 0; i < data.length; i++) {
+        if (typeof callback === 'function')
+          callback(data[i]);
+      }
+    }
+
+    processStudent(student, (obj) => {
+      if (obj.name === 'david') {
+        console.log(obj.name, 'passed')
+      }
+    })
+
+    console.log("i am first");
+
+
+
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>

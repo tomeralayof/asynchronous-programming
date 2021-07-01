@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    console.log("------------>promise example");
+
+
+
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+
+        resolve("promise has been resolver");
+      }, 3000);
+    });
+
+
+
+    console.log(promise);
+
+    console.log("%c------------>How to use promises", 'color:red;font-size:30px');
+
+    // first promise:
+    let asyncFunction = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("this is the resolve get from the promise");
+        }, 4000);
+      })
+    }
+
+    //second promise:
+    let asyncFunction2 = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+
+          resolve("promise 2 has done");
+        }, 3000);
+      })
+    }
+
+    asyncFunction()
+      .then((val) => {
+        console.log("%c The promise has returned result!!" + `the value from then is: ${val}`);
+        return asyncFunction2();
+      })
+      .then((val) => {
+        console.log("promise 2" + val)
+      });
+
+
+    console.log("%c ---------->this will be red first because promises are asyncronous", 'color:purple;font-size:20px');
+
+
+
+
+
+    // console.log(data);
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

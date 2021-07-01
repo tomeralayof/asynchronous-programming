@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let logCode = () => {
+      console.log("logCode was called back")
+    }
+
+    //the meaning is that logCode is a callback inside set time out function. call back function is a function that pass in as a parameter to the function and called after something else has accured. on our example, the function set time out gets the function logCode as a parameter, and then the timmer of 3 seconds is running. after the timer is finised, the call back function is accuted.
+
+    setTimeout(logCode, 3000);
+
+
+    //now we can write our call back function to be more readable. thats mean that the function will be writted inside the set time out function.
+
+    setTimeout(() => {
+
+      console.log("this is a smarter way to make a call back by writing the call back inside of the function itself.");
+
+    }, 5000);
+
+
+    setTimeout(function () {
+      console.log("old way to write");
+    }, 10000);
+
+
+  </script>
+
+</body>
+
+</html>

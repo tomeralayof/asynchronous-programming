@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    // console.log('%c----------> promises using fetch', 'color:black;font-size:40px');
+
+    // fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //   .then(response => response.json())
+    //   .then(json => console.log(json))
+    //   .catch(err => console.log("there was an error"));
+
+
+    // let statWarApi = fetch('https://swapi.dev/api/people/1/');
+
+
+
+    // statWarApi
+    //   .then(response => response.json())
+
+    //   .then((data) => {
+    //     return fetch(data.homeworld)
+    //   })
+
+    //   .then((homeworld) => {
+    //     return homeworld.json()
+    //   })
+
+    //   .then(result => console.log(result))
+
+
+    //   .catch(err => console.log("there was an error to fatch the data"));
+
+
+
+    // setTimeout(() => {
+    //   console.log('%c----------> Json place holder using fetch', 'color:purple;font-size:40px');
+    // }, 1000);
+
+    let jphApi = fetch('https://jsonplaceholder.typicode.com/todos/');
+
+    jphApi
+      .then(response => response.json())
+      .then(data => console.log(data));
+
+    console.log(jphApi);
+
+
+
+    //post data to json place holder:
+
+    let todo = {
+      completed: false,
+      userId: 1,
+      title: 'learn promises'
+    }
+
+    fetch('https://jsonplaceholder.typicode.com/todos/', {
+      method: 'POST',
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(todo)
+    })
+      // 
+      .then(data => data.json())
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
